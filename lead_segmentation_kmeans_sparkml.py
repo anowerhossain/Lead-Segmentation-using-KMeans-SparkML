@@ -51,9 +51,15 @@ feature_cols = [
     'Account_Creation_Days', # Days since account creation
     'Bounce_Rate',           # Website bounce rate
     'Device_Type',           # Type of device used (1: Mobile, 2: Desktop)
-    'Referrals'              # Number of referrals made by the lead
+    'Referrals',             # Number of referrals made by the lead
+    'Login_Frequency',       # Number of times the lead logged in
+    'Days_Active',           # Number of distinct days the lead was active
+    'Onboarding_Completion', # Whether the onboarding process was completed (1/0)
+    'Guided_Tour_Completion',# Whether the guided product tour was completed (1/0)
+    'Integration_Attempts',  # Number of times the lead attempted integrations
+    'Content_Engagement',    # Number of blogs, whitepapers, or resources accessed
+    'Customizations_Made'    # Number of customizations made in the product settings
 ]
-
 # Use VectorAssembler to combine these features into a single column
 assembler = VectorAssembler(inputCols=feature_cols, outputCol="features")
 customer_transformed_data = assembler.transform(customer_data)
